@@ -1,0 +1,13 @@
+/* Portal registry — add one entry per tool. `path` is relative to the site root (the "AI For Engineering" folder).
+   status: 'live' (ready), 'pilot' (being tested), 'planned'. */
+window.PORTAL_TOOLS = [
+  { program: 'Electrical — Power & Machines', code: '01', course: 'POWE445 Control Systems II', title: 'Self-Balancing Robot Challenge', path: 'programs/01-electrical-power-machines/POWE445-robot-challenge/', url: 'https://usif-3jra.github.io/powe445-challenge/', ml: 'Regression · disturbance compensation', status: 'live' },
+  { program: 'Electrical — Power & Machines', code: '01', course: 'POWE211 · POWE212 Electric Circuits', title: 'Circuit Reverse-Engineering Challenge', path: 'programs/01-electrical-power-machines/electric-circuits-thevenin-reverse-engineering/', ml: 'Regression · Thevenin equivalent from load tests (in-browser training, no MATLAB)', status: 'pilot' },
+  { program: 'Electrical — Power & Machines', code: '01', course: 'Electric Machines', title: 'Motor Efficiency Challenge', path: 'programs/01-electrical-power-machines/electric-machines-motor-efficiency/', ml: 'Regression · optimal flux level of a VFD', status: 'pilot' },
+  { program: 'Electrical — Communication & Electronics', code: '02', course: 'Communication Systems', title: 'Channel Prediction Challenge', path: 'programs/02-communication-electronics/channel-prediction-adaptive-modulation/', ml: 'Regression · fading SNR prediction for adaptive modulation', status: 'pilot' },
+  { program: 'Biomedical Engineering', code: '03', course: 'Physiological Systems Modelling', title: 'Glucose–Insulin Predictor Challenge', path: 'programs/03-biomedical/glucose-insulin-predictor/', ml: 'Regression · 30-min glucose forecast for an insulin pump', status: 'pilot' },
+  { program: 'Mechanical Engineering', code: '04', course: 'Mechanical Vibrations', title: 'Vibration Diagnosis Challenge', path: 'programs/04-mechanical/vibration-fault-diagnosis/', ml: 'Classification · pump fault diagnosis', status: 'pilot' },
+  { program: 'Civil Engineering', code: '05', course: 'Traffic Engineering', title: 'Traffic Signal Challenge', path: 'programs/05-civil/traffic-signal-optimizer/', ml: 'Regression · intersection delay surrogate', status: 'pilot' },
+  { program: 'Chemical Engineering', code: '06', course: 'Process Dynamics and Control', title: 'PID Tuning Challenge', path: 'programs/06-chemical/process-control-pid-tuner/', ml: 'Regression · closed-loop cost map for SIMC tuning', status: 'pilot' },
+  { program: 'Industrial Engineering', code: '07', course: 'Production Planning and Control', title: 'Job Scheduling Challenge', path: 'programs/07-industrial/job-time-prediction-scheduling/', ml: 'Regression · processing-time prediction', status: 'pilot' }
+];

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for Engineering — Challenge Portal</title>
+  <link rel="icon" href="../shared/assets/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/style.css">
+  <style>
+    .wrap { max-width: 1240px; margin: 22px auto; padding: 0 18px; }
+    .prog { margin-bottom: 22px; }
+    .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+    .tool { border: 1.5px solid var(--ink); background: #fff; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .tool h3 { margin: 0; font-size: 17px; } .tool .c { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; color: var(--muted); }
+    .tool .links { margin-top: auto; display: flex; gap: 8px; padding-top: 8px; }
+    .intro { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+    @media (max-width: 800px) { .intro { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar"><img class="logo" src="https://usif-3jra.github.io/epme-study-plan/assets/logo_ECE.png" alt="BAU" onerror="this.outerHTML='<div class=&quot;logo-fallback&quot;>BAU</div>'">
+    <div class="brand"><span class="course">FACULTY OF ENGINEERING · BEIRUT ARAB UNIVERSITY</span><span class="title">AI for Engineering — Challenge Portal</span></div></header>
+  <div class="wrap">
+    <section class="sheet"><div class="sheet-label">ABOUT</div>
+      <div class="intro"><div><h2>AI-integrated technical assessments</h2>
+        <p class="lead">Each challenge follows the same path: solve the engineering questions of your own (ID-generated) system, train a model on your own dataset (MATLAB Learner apps, or directly in the browser for first-year courses), and prove in a simulation that it beats the conventional engineering method. Marks, a certificate and a full PDF report are issued at the end.</p></div>
+        <div><table class="spec"><tr><th>STAGE</th><th>WHAT YOU DO</th></tr><tr><td>1–2</td><td>Engineering sheets</td></tr><tr><td>3</td><td>ML model (MATLAB or in-browser)</td></tr><tr><td>4</td><td>Simulation challenge</td></tr><tr><td>5</td><td>Marks · certificate · report</td></tr></table></div></div>
+    </section>
+    <div id="list"></div>
+  </div>
+  <div class="foot">AI FOR ENGINEERING · v1.0 · CREATED BY YOUSSEF AJRA</div>
+  <script src="tools.js"></script>
+  <script>
+    const T = window.PORTAL_TOOLS, groups = [...new Set(T.map(t => t.code + '|' + t.program))].sort();
+    const pill = s => `<span class="pill ${s === 'live' ? 'ok' : s === 'pilot' ? 'info' : 'warn'}">${s.toUpperCase()}</span>`;
+    document.getElementById('list').innerHTML = groups.map(g => { const [code, name] = g.split('|');
+      return `<section class="sheet prog"><div class="sheet-label">PROGRAM ${code}</div><h2>${name}</h2><div class="tools">${T.filter(t => t.code === code).map(t => `
+        <div class="tool"><span class="c">${t.course.toUpperCase()}</span><h3>${t.title}</h3><div class="small muted">${t.ml}</div><div>${pill(t.status)}</div>
+        <div class="links">${t.status === 'planned' ? '' : `<a class="btn primary sm" href="${t.url || '../' + t.path}index.html">STUDENT</a><a class="btn sm" href="${t.url || '../' + t.path}admin.html">INSTRUCTOR</a>`}</div></div>`).join('')}</div></section>`; }).join('');
+  </script>
+</body>
+</html>
